@@ -4,4 +4,12 @@
   hosts: localhost
   remote_user: root
   roles:
-    - s4
+    - role: s4
+      buckets:
+        - "test"
+        - "test2"
+    - role: s4
+      destroy: true
+      buckets:
+        - "test"
+        - "test2"

@@ -1,8 +1,10 @@
 ---
-- name: "S4 Deploy Bucket"
+- name: "S4 {{ destroy | ternary('Destroy', 'Deploy') }} Bucket"
   amazon.aws.s3_bucket:
     endpoint_url: "{{ s4.endpointProtocol }}://{{ s4.endpointAddress }}:{{ s4.endpointPort }}"
     name: "{{ item }}"
-    state: present
+    state: "{{ destroy | ternary('absent','present') }}"
     access_key: "{{ s4.endpointUser }}"
     secret_key: "{{ s4.endpointPassword }}"
+    region: us-east-1 # This will always be us-east-1, s4 only responds to requests for that region unless configured otherwise
+  loop: "{{ buckets }}"

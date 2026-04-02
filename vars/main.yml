@@ -6,8 +6,8 @@ s4:
   endpointProtocol: http
   endpointAddress: localhost
   endpointPort: 7480
-  endpointUser: "s4user"
-  endpointPassword: "s4password"
+  endpointUser: "s4admin"
+  endpointPassword: "s4secret"
 
 buckets:
   - "test123"
