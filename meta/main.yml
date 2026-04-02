@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: MIT-0
+# SPDX-License-Identifier: Apache-2.0
 galaxy_info:
   author: eduffy
   description: Deploy Buckets to an S4 Instance
@@ -17,7 +17,7 @@ galaxy_info:
   # - GPL-3.0-only
   # - Apache-2.0
   # - CC-BY-4.0
-  license: MIT
+  license: Apache-2.0
 
   min_ansible_version: '2.1'
 

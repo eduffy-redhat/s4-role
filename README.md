@@ -48,7 +48,7 @@ Example Playbook
 License
 -------
 
-MIT (I think? idk)
+Apache-2.0
 
 Author Information
 ------------------
