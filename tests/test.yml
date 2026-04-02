@@ -1,11 +1,7 @@
-#SPDX-License-Identifier: MIT-0
+# SPDX-License-Identifier: MIT-0
 ---
-- hosts: localhost
+- name: "Test s4 Role"
+  hosts: localhost
   remote_user: root
   roles:
-    - role: s4
-      buckets:
-        - "test1"
-        - "test2"
-        - "test3"
-        - "test4"
+    - s4

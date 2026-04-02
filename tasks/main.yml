@@ -1,0 +1,8 @@
+---
+- name: "S4 Deploy Bucket"
+  amazon.aws.s3_bucket:
+    endpoint_url: "{{ s4.endpointProtocol }}://{{ s4.endpointAddress }}:{{ s4.endpointPort }}"
+    name: "{{ item }}"
+    state: present
+    access_key: "{{ s4.endpointUser }}"
+    secret_key: "{{ s4.endpointPassword }}"
