@@ -1,38 +1,55 @@
-Role Name
+S4 Ansible Role
 =========
 
-A brief description of the role goes here.
+Used to create or destroy s3 buckets on an s4 enpoint
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+An s4 enpoint, the host information and credentials should be specified in variables, see the below section for explanations of each variable
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+- s4: S4 Endpoint Information
+    - endpointProtocol: Either 'http' or 'https'
+    - endpointAddress: Hostname of the s4 server
+    - endpointPort: Port for the s4 server, this is 7480 by default
+    - endpointUser: The s4 server username, default is "s4admin"
+    - endpointPassword: The s4 server password, default is "s4secret"
+- destroy: Default is false. true will destroy the specified bucket. false or omitting this will create the specified bucket
+- buckets: A list of strings defining the bucket names to operate on, see the below example for how this should look
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+- amazon.aws.s3_bucket
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```
+---
+- name: "Test s4 Role"
+  hosts: localhost
+  remote_user: root
+  roles:
+    - role: s4
+      buckets:
+        - "testBucket1"
+        - "testBucket2"
+    - role: s4
+      destroy: true
+      buckets:
+        - "testBucket1"
+        - "testBucket2"
+```
 
 License
 -------
 
-BSD
+MIT (I think? idk)
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
