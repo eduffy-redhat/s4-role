@@ -3,7 +3,11 @@
 # vars file for s4
 
 s4:
+  endpointProtocol: http
   endpointAddress: localhost
   endpointPort: 7480
-  endpointUser: s4user
-  endpointPassword: s4password
+  endpointUser: "s4user"
+  endpointPassword: "s4password"
+
+buckets:
+  - "test123"
