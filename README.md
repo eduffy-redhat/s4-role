@@ -11,14 +11,14 @@ An s4 enpoint, the host information and credentials should be specified in varia
 Role Variables
 --------------
 
-- s4: S4 Endpoint Information
+- s4_s4: S4 Endpoint Information
     - endpointProtocol: Either 'http' or 'https'
     - endpointAddress: Hostname of the s4 server
     - endpointPort: Port for the s4 server, this is 7480 by default
     - endpointUser: The s4 server username, default is "s4admin"
     - endpointPassword: The s4 server password, default is "s4secret"
-- destroy: Default is false. true will destroy the specified bucket. false or omitting this will create the specified bucket
-- buckets: A list of strings defining the bucket names to operate on, see the below example for how this should look
+- s4_destroy: Default is false. true will destroy the specified bucket. false or omitting this will create the specified bucket
+- s4_buckets: A list of strings defining the bucket names to operate on, see the below example for how this should look
 
 Dependencies
 ------------
@@ -35,14 +35,14 @@ Example Playbook
   remote_user: root
   roles:
     - role: s4
-      buckets:
-        - "testBucket1"
-        - "testBucket2"
+      s4_buckets:
+        - "test"
+        - "test2"
     - role: s4
-      destroy: true
-      buckets:
-        - "testBucket1"
-        - "testBucket2"
+      s4_destroy: true
+      s4_buckets:
+        - "test"
+        - "test2"
 ```
 
 License
