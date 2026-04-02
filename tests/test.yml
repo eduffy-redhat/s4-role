@@ -5,11 +5,11 @@
   remote_user: root
   roles:
     - role: s4
-      buckets:
+      s4_buckets:
         - "test"
         - "test2"
     - role: s4
-      destroy: true
-      buckets:
+      s4_destroy: true
+      s4_buckets:
         - "test"
         - "test2"
