@@ -3,4 +3,9 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - s4
+    - role: s4
+      buckets:
+        - "test1"
+        - "test2"
+        - "test3"
+        - "test4"
