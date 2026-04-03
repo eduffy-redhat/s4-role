@@ -3,6 +3,8 @@ S4 Ansible Role
 
 Used to create or destroy s3 buckets on an s4 enpoint
 
+[See the s4 repo for more info on how to use it.](https://github.com/rh-aiservices-bu/s4)
+
 Requirements
 ------------
 
